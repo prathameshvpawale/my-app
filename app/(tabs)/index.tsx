@@ -1,26 +1,29 @@
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import { Text, View } from 'react-native';
 
-import { Link } from "expo-router"
-import { View, Text } from "react-native"
-import { SafeAreaView } from "react-native-safe-area-context"
+const Tab = createMaterialTopTabNavigator();
 
 export default function foryou() {
-    return <SafeAreaView>
+    return (
+        <Tab.Navigator>
+            <Tab.Screen name="Home" component={HomeScreen} />
+            <Tab.Screen name="Profile" component={ProfileScreen} />
+        </Tab.Navigator>
+    );
+}
 
-        <Link href={"/suggested"}>
-            <Text>
-                suggested
-            </Text>
-        </Link>
-        <Link href={"/liked"}>
-            <Text>
-                Liked
-            </Text>
-        </Link>
-        <Link href={"/library"}>
-            <Text>
-                library
-            </Text>
-        </Link>
+function HomeScreen() {
+    return <View>
+        <Text>
+            hello homescrren
+        </Text>
+    </View>
+}
 
-    </SafeAreaView>
+function ProfileScreen() {
+    return <View>
+        <Text>
+            hello ProfileScreen
+        </Text>
+    </View>
 }
